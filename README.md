@@ -10,25 +10,25 @@ To start a new Data science project:
   ```
   git clone https://github.com/glebmikha/data-science-project-template.git
   ```
-1. Add your favorite Python modules to ./docker/jupyter/requirements.txt. For example:
+2. Add your favorite Python modules to ./docker/jupyter/requirements.txt. For example:
 ```
 xgboost
 tensorflow==1.6.0
 ```
 
-1. Build and run a docker container
+3. Build and run a docker container
   ```
   docker-compose up --build
   ```
-1. Copy a jupyter url from terminal and open it in your browser.
-1. Find an example notebook in ipynb folder and create your notebooks.
-1. Upload your data in ./data
-1. Stop and remove the container
+4. Copy a jupyter url from terminal and open it in your browser.
+5. Find an example notebook in ipynb folder and create your notebooks.
+6. Upload your data in ./data
+7. Stop and remove the container
   ```
   docker stop this_jupyter
   docker-compose rm -f
   ```
-1. Clean Docker's mess
+8. Clean Docker's mess
   ```
   docker rmi -f $(docker images -qf dangling=true)
   ```
