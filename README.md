@@ -21,19 +21,14 @@ tensorflow==1.6.0
   docker-compose up --build
   ```
 1. Copy a jupyter url from terminal and open it in your browser.
-
 1. Find an example notebook in ipynb folder and create your notebooks.
-
 1. Upload your data in ./data
-
 1. Stop and remove the container
   ```
   docker stop this_jupyter
-
   docker-compose rm -f
   ```
 1. Clean Docker's mess
-
   ```
   docker rmi -f $(docker images -qf dangling=true)
   ```
