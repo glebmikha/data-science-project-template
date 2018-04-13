@@ -8,7 +8,7 @@ To start a new Data science project:
 
 1. Clone this repo
   ```
-  git clone https://github.com/glebmikha/data-science-project-template.git
+  git clone --bare https://github.com/glebmikha/data-science-project-template.git
   ```
 2. Add your favorite Python modules to ./docker/jupyter/requirements.txt. For example:
 ```
