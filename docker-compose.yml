@@ -9,3 +9,11 @@ services:
       ports:
         - 8888:8888
       container_name:   this_jupyter
+  this_postgres:
+    build: ./docker/postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+volumes:
+  postgres_data:
