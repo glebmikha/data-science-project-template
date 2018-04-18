@@ -61,11 +61,11 @@ tensorflow==1.6.0
   Verify password:
   Out[2]: 'sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed'
   ```
-2. Copy output to jupyter_notebook_config.py like:
+2. Copy output to the jupyter_notebook_config.py like:
   ```
   c.NotebookApp.password = u'sha1:67c9e60bb8b6:9ffede0825894254b2e042ea597d771089e11aed'
   ```
-3. Uncomment
+3. Add to Jupyter Dockerfile
   ```
   COPY jupyter_notebook_config.py /etc/jupyter/ in Docker file
   ```
@@ -79,8 +79,6 @@ https://github.com/moby/moby/issues/32263
 Add to the Jupyter Dockerfile
 
 ```
-# Choose your desired base image
-FROM jupyter/scipy-notebook:latest
 
 # Create a Python 2.x environment using conda including at least the ipython kernel
 # and the kernda utility. Add any additional packages you want available for use
