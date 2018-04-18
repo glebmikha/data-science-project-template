@@ -16,20 +16,20 @@ xgboost
 tensorflow==1.6.0
 ```
 
-3. Build and run a docker container
+3. Build and run containers
   ```
   docker-compose up --build
   ```
 4. Copy a jupyter url from terminal and open it in your browser.
 5. Find an examples.ipynb notebook in ipynb folder.
 6. Upload your data into ./data and read it in Jupyter. You also can import data into PostgresSQL, which is running in it's own container along with Jupyter.
-7. Stop and remove the container
+7. Stop and remove containers
   ```
   docker stop this_jupyter
   docker-compose rm -f
   ```
 
-  To remove all
+  To remove all containers
   ```
   docker rm -f $(docker ps -a -q)
   ```
@@ -45,12 +45,12 @@ tensorflow==1.6.0
   ```
   docker rmi -f $(docker images -qf dangling=true)
   ```
----
+
 ## Connect to a container terminal
   ```
   bash -c clear && docker exec -it this_jupyter sh
   ```
----
+
 ## Create password
 
 1. Hash your password
@@ -69,3 +69,32 @@ tensorflow==1.6.0
   ```
   COPY jupyter_notebook_config.py /etc/jupyter/ in Docker file
   ```
+
+## Backup volumes
+
+https://github.com/moby/moby/issues/32263
+
+## Add a Python 2 kernel to Jupyter
+
+Add to the Jupyter Dockerfile
+
+```
+# Choose your desired base image
+FROM jupyter/scipy-notebook:latest
+
+# Create a Python 2.x environment using conda including at least the ipython kernel
+# and the kernda utility. Add any additional packages you want available for use
+# in a Python 2 notebook to the first line here (e.g., pandas, matplotlib, etc.)
+RUN conda create --quiet --yes -p $CONDA_DIR/envs/python2 python=2.7 ipython ipykernel kernda && \
+    conda clean -tipsy
+
+USER root
+
+# Create a global kernelspec in the image and modify it so that it properly activates
+# the python2 conda environment.
+RUN $CONDA_DIR/envs/python2/bin/python -m ipykernel install && \
+$CONDA_DIR/envs/python2/bin/kernda -o -y /usr/local/share/jupyter/kernels/python2/kernel.json
+
+USER $NB_USER
+
+```
