@@ -7,8 +7,12 @@ With this image you can up your data science environment in minutes on any compu
 ## To start a new Data science project:
 
 1. Clone this repo
+
+  The best way is to create a new folder with project name, cd into it, and then run
+
   ```
-  git clone --bare https://github.com/glebmikha/data-science-project-template.git
+  git init
+  git pull https://github.com/glebmikha/data-science-project-template.git
   ```
 2. Add your favorite Python modules to ./docker/jupyter/requirements.txt. For example:
 ```
