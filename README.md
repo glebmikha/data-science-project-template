@@ -24,7 +24,21 @@ tensorflow==1.6.0
   ```
   docker-compose up --build
   ```
+You should check for updates once in a while. Use
+```
+docker-compose pull
+```
+You also can check udpates for images separately. For jupyter for example use:
+```
+docker pull jupyter/datascience-notebook:latest
+```
+
 4. Copy a jupyter url from terminal and open it in your browser.
+
+Notice that jupyrer uses container name (like b612ade69526) as the host address. You should replace it with localhost. You also can configure jupyter to show custom host string. https://github.com/jupyter/notebook/pull/3668
+
+There is aslo known limitation https://docs.docker.com/docker-for-mac/networking/#i-cannot-ping-my-containers of Docker for Mac -- you can't access a container neither its name nor ip address. There are some workaround, but the easiest one is just to run jupyters on diffrent ports, like 8889, 8890, etc.
+
 5. Find an examples.ipynb notebook in ipynb folder.
 6. Upload your data into ./data and read it in Jupyter. You also can import data into PostgresSQL, which is running in it's own container along with Jupyter.
 7. Stop and remove containers
