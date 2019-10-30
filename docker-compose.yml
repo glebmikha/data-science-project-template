@@ -1,16 +1,15 @@
-version:                "3"
+version: "3"
 services:
   this_jupyter:
-      build:
-        context: ./docker/jupyter/
-        dockerfile: Dockerfile
-      volumes:
-        - .:/home/jovyan/
-      ports:
-        - 8888:8888
-      container_name:   this_jupyter2
+    build:
+      context: ./docker/jupyter/
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home/jovyan/
+    ports:
+      - 8888:8888
   this_postgres:
-    build: ./docker/postgres
+    image: postgres:10-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
