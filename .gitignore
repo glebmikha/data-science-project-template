@@ -9,7 +9,7 @@ ehthumbs.db
 Thumbs.db
 
 # Jupyter #
-######################
+####################
 .cache/
 .config/
 .ipython/
@@ -18,5 +18,5 @@ ipynb/.ipynb_checkpoints/
 .jupyter/
 
 # Other #
-######################
+#####################
 lib/__pycache__/
