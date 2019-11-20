@@ -14,7 +14,7 @@ Thumbs.db
 .config/
 .ipython/
 .local/
-ipynb/.ipynb_checkpoints/
+.ipynb_checkpoints
 .jupyter/
 
 # Other #
