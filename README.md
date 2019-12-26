@@ -1,5 +1,10 @@
 # Data Science Project Template
 
+Youtube instructions:
+
+ENG: https://youtu.be/pTk82vkhsMc  
+RUS: https://youtu.be/xf58pNYhRss
+
 This repo is inspired by the <a href="https://www.amazon.com/Docker-Data-Science-Extensible-Infrastructure/dp/1484230116" target="_blank">Docker for Datascience book</a>. It's a Docker image with a data science environment based on the <a href="https://hub.docker.com/r/jupyter/datascience-notebook/" target="_blank">jupyter/datascience-notebook </a>with pandas, matplotlib, scipy, seaborn and scikit-learn pre-installed.
 
 ## To start new Data Science project:

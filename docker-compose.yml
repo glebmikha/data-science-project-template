@@ -9,7 +9,7 @@ services:
     ports:
       - 8888:8888
   this_postgres:
-    image: postgres:10-alpine
+    build: ./docker/postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
