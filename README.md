@@ -49,7 +49,12 @@ docker-compose up
 docker-compose down
 ```
 
-8. Clean Docker's mess
+8. Update images
+```
+docker-compose build --pull
+```
+
+9. Clean Docker's mess
 
 ```
 docker rmi -f $(docker images -qf dangling=true)
